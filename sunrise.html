@@ -1,8 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>sunrise</title>
+	<title>css sunrise</title>
 </head>
+<style type="text/css">
+	html{
+		background-color:#000;
+		overflow: hidden;
+	}
+
+	.container,.sea,.sky,.sun,.light,.bird,.bird1,.birdr,.fin,.wave{
+		position: absolute;
+	}
+
+	.container{
+		width: 100%;
+		height: 400px;
+		top: 50%;
+		left: 50%;
+		margin-left: -50%;
+		margin-top: -200px;
+		background-color: white;
+	}
+
+	.sky{
+
+		/*opacity:规定不透明度，从0.0（完全透明）到1.0（完全不透明，如果值为inherit，则继承父元素opacity值*/
+		opacity: 0.8;
+		width: 100%;
+		height: 50%;
+		top: 0;
+
+		/*radial-gradient():径向渐变函数*/
+		/*渐变圆心在坐标的50%（水平中心）和70%（垂直中下）处*/
+		/*三个颜色是用于指定渐变的起止颜色*/
+		background: radial-gradient(at 50% 70%,#820,#610,#400,#100);
+
+		/*z-index:设置图像的堆叠顺序，拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面*/
+		z-index: 30;
+		/*border:white 1px solid;*/
+	}
+
+	.sea{
+		width: 100%;
+		height: 50%;
+		top: 50%;
+		background: radial-gradient(at 50% 0%,#007,#004);
+		z-index: 60;
+	}
+
+	.sun{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		left: 45%;
+		z-index: 40;
+		/*linear-gradient:创建线性渐变的图像，不指定方向的话默认从上到下，即0度方向渐变*/
+		background: linear-gradient(#ff0,#d00);
+
+		/*box-shadow:水平阴影位置 垂直阴影位置 模糊距离 阴影尺寸 阴影颜色，逗号分隔多个阴影*/
+		box-shadow: 0 0 40px 6px #f20,0 0 150px 10px #f33;
+
+		/*animation：绑定动画与div元素*/
+		/*ease（默认值）：动画低速开始，然后加快，结束前变慢*/
+		/*forwards：当动画完成后，保持在最后一个属性值，默认为none*/
+		animation: rise 24s ease forwards;
+	}
+
+	@keyframes rise{
+		/*时间轴0%的时候的位置*/
+		0%{
+			top: 50%;
+		}
+		/*时间轴100%的时候的位置*/
+		100%{
+			top: 15%;
+		}
+	}
+
+	.light{
+		opacity: 0.5;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(at 50% 0%,#ff0,transparent);
+		z-index: 60;
+		animation: over 12s ease forwards;
+	}
+
+	@keyframes over{
+		0%{
+			opacity: 0;
+		}
+		100%{
+			opacity: 0.2;
+		}
+	}
+	
+</style>
 <body>
 	<div class="container">
 		<div class="sky"></div>
